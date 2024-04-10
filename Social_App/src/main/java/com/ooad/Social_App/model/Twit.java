@@ -1,6 +1,7 @@
 // Source code is decompiled from a .class file using FernFlower decompiler.
 package com.ooad.Social_App.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import jakarta.persistence.OneToMany;
 import java.util.List;
@@ -46,5 +47,6 @@ public class Twit {
    
    private boolean isReply;
    private boolean isTwit;
+   private LocalDateTime createdAt ;
 
 }
