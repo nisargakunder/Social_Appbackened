@@ -1,6 +1,7 @@
 package com.ooad.Social_App.service;
 
 import java.time.LocalDateTime;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +14,17 @@ import com.ooad.Social_App.exception.UserException;
 import com.ooad.Social_App.model.Twit;
 import com.ooad.Social_App.model.User;
 import com.ooad.Social_App.request.TwitReplyRequest;
+
 @Service 
 public class TwitServiceImplementation implements TwitService{
+
+	
    @Autowired
    private TwitRepository twitRepository;
+   
 	@Override
-	public Twit createTwit(TwitService req,User user) throws UserException {
+	public Twit createTwit(Twit req,User user) throws UserException {
+		
 		Twit twit=new Twit();
 		twit.setContent(req.getContent());
 		twit.setCreatedAt(LocalDateTime.now());
@@ -93,8 +99,7 @@ public class TwitServiceImplementation implements TwitService{
 
 	@Override
 	public List<Twit> getUserTwit(User user) {
-		// TODO Auto-generated method stub
-	return twitRepository.findByRetwitUserContainsOrUser_IdAndIsTwitTrueOrderByCreatedAtDesc(user, user.getId());
+		return twitRepository.findByRetwitUserContainsOrUser_IdAndIsTwitTrueOrderByCreatedAtDesc(user, user.getId());
 	
 	}
 
@@ -104,6 +109,11 @@ public class TwitServiceImplementation implements TwitService{
 		
 	}
 
+	@Override
+	public TwitException removeFromRetwit(Long twitId, User user) throws TwitException, UserException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 

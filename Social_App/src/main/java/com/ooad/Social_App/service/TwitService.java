@@ -10,7 +10,7 @@ import com.ooad.Social_App.request.TwitReplyRequest;
 
 public interface TwitService {
 //create twit, find twit ,retweet ,find tweet by id,delete tweet,remove user retweet,get user tweet
-	public Twit createTwit(TwitService req,User user)throws UserException;
+	public Twit createTwit(Twit req,User user)throws UserException;
 	public List<Twit>findAllTwit();
 	public Twit retwit(Long twitId,User user) throws UserException,TwitException;
 	

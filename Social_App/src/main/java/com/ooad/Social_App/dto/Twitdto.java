@@ -4,8 +4,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import lombok.Data;
+
 @Data
-public class Twitdto {
+public class TwitDto {
 	private Long id;
 	private String content;
 	private String image;

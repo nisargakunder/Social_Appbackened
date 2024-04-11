@@ -8,8 +8,10 @@ import com.ooad.Social_App.model.Like;
 
 
 public interface LikeRepository extends JpaRepository<Like,Long>{
-	@Query("Select l from Like l where l.user.id=:userId And l.twit.id=:twitId")
+	
+	@Query("SELECT l FROM Like l WHERE l.user.id=:userId AND l.twit.id=:twitId")
 	public Like isLikeExist(@Param("userId")Long userId,@Param("twitId")Long twitId);
+	
 	@Query("Select l from Like l where l.twit.id=:twitId")
 	public List<Like> findByTwitId(@Param("twitId")Long twitId);
 	
