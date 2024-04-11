@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin</title>
+</head>
+<body>
+    <h2>Signin</h2>
+    <form id="signinForm">
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <button type="button" onclick="submitForm()">Signin</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            var formData = {
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value
+            };
+    
+            fetch('/auth/signin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            }).then(response => {
+                if (response.ok) {
+                    // Show alert for successful login
+                    alert("Successful login!");
+                } else {
+                    // Show alert for invalid credentials
+                    alert("Invalid credentials. Please try again.");
+                }
+            }).catch(error => {
+                // Handle error
+                console.error('Error:', error);
+            });
+        }
+    </script>
+    
+</body>
+</html>
